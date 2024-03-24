@@ -9,7 +9,6 @@ const SavedBooks = ({ savedBooks }) => {
           <li key={book.id}>
             <h3>{book.title}</h3>
             <p>{book.author}</p>
-            {/* Additional book details */}
           </li>
         ))}
       </ul>
