@@ -12,7 +12,7 @@ module.exports = {
     },
   }),
   // function for our authenticated routes
-  authMiddleware: function ({req}) {
+  authMiddleware: function ({ req }) {
     // allows token to be sent via  req.query or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
@@ -22,7 +22,7 @@ module.exports = {
     }
 
     if (!token) {
-     return req;
+      return req;
     }
 
     // verify token and get user data out of it

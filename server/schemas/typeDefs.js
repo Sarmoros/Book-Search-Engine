@@ -32,7 +32,6 @@ input BookInput {
 
 type Query {
     me: User
-    searchBooks(searchTerm: String!): [Book]
 }
 
 type Mutation {

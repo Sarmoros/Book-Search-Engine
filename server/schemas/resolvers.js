@@ -55,26 +55,6 @@ const resolvers = {
     }
 };
 
-resolvers.Query.searchBooks = async (_, { searchTerm }) => {
-  try {
-     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`);
-     if (!response.ok) {
-       throw new Error('Failed to fetch books');
-     }
-     const data = await response.json();
-     return data.items.map(item => ({
-       id: item.id,
-       title: item.volumeInfo.title,
-       authors: item.volumeInfo.authors,
-       description: item.volumeInfo.description,
-       image: item.volumeInfo.imageLinks?.thumbnail,
-       link: item.volumeInfo.infoLink,
-     }));
-  } catch (error) {
-     console.error('Error fetching books:', error);
-     throw new Error('Failed to fetch books');
-  }
- };
  
 
 module.exports = resolvers;
